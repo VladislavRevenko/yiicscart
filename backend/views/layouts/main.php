@@ -120,38 +120,128 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
-    <?php
-    echo Menu::widget([
-        'options' => [
-            'id' => 'navid',
-            'class' => 'navbar-nav',
-            'style' => 'margin-top: 50px; margin-left: 20px; float: left; font-size: 16px;',
-            'data' => 'menu',
-        ],
-        'items' => [
-            [
-            'label' => 'Orders', 
-            'url' => ['#'], 
-            'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
-            'items' => [
-                ['label' => 'View orders', 'url' => ['orders/index']],
-                ['label' => 'Shipments', 'url' => ['shipments/index']],
-                ['label' => 'Sales reports', 'url' => ['salesreports/index']],
-                // ['label' => 'Abandoned/Live carts', 'url' => ['site/cart_list']],
-            ]],
-            ['label' => 'Products', 'url' => ['site/products']],
-            ['label' => 'Customers', 'url' => ['site/customers']],
-            ['label' => 'Marketing', 'url' => ['site/marketing']],
-            ['label' => 'Website', 'url' => ['site/website']],
-        ],
-        'labelTemplate' =>'{label} Label',
-        'linkTemplate' => '<a href="{url}"><span>{label}</span></a>',
-        'activeCssClass'=>'active',
-        'firstItemCssClass'=>'fist',
-        'lastItemCssClass' =>'last',
-    ]);
 
-    ?>
+    <div class="btn-group">
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Orders
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><a href="#">
+                    <span>View orders</span>
+                    <span class="hint">View, process and print invoices slips for orders placed from your web site.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Shipments</span>
+                    <span class="hint">View and print packing slips for shipments created from orders.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Sales reports</span>
+                    <span class="hint">Detailed statistics on the sales.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Abandoned/Live carts</span>
+                    <span class="hint">Lists of products that have not been purchased for some reason.</span>
+                </a></li>
+            </ul>
+        </div>
+        
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Products
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="#">
+                    <span>Categories</span>
+                    <span class="hint">View product categories which are used to group products in your store.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Products</span>
+                    <span class="hint">View, add and edit products that are shown to visitors of your store.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Features</span>
+                    <span class="hint">Add and manage extra product fields.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Filters</span>
+                    <span class="hint">Product filters are displayed on the storefront and enable your customers to quickly find the products.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Options</span>
+                    <span class="hint">Manage global product options and option variants in your store.</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Customers
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="#">
+                    <span>Administrators</span>
+                    <span class="hint">List of store administrators, registered users with an administrator account.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Customers</span>
+                    <span class="hint">List of store customers, registered users with a customer account.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>User groups</span>
+                    <span class="hint">List of user groups that exist in your store.</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Marketing
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="#">
+                    <span>Promotions</span>
+                    <span class="hint">Promote goods and offer bonuses basing on customers memberships.</span>
+                </a></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Website
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <li><a href="#">
+                    <span>Pages</span>
+                    <span class="hint">Create and publish pages, polls, forms and links.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>SEO</span>
+                    <span class="hint">SEO settings of your store.</span>
+                </a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">
+                    <span>Sitemap</span>
+                    <span class="hint">Create additional sections of the customer area sitemap and define the set of links for them.</span>
+                </a></li>
+            </ul>
+        </div>
+    </div>
 
     <div class="container">
         <?= Breadcrumbs::widget([

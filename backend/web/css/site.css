@@ -149,3 +149,28 @@ a.desc:after {
 .navbar-cscart-text > li > a {
     color: #daedf7 !important;
 }
+
+.btn-group {
+    margin-top: 25px;
+}
+
+.btn-group .dropdown-menu >li >a .hint {
+    font-size: 11px;
+    color: #999;
+    line-height: 1.2;
+    font-weight: 400;
+}
+
+.btn-group .dropdown-menu >li >a >span {
+    display: block;
+    white-space: normal;
+}
+
+.btn-group .dropdown-menu {
+    margin: 0;
+    border-radius: 0;
+    padding: 0;
+    max-width: 330px;
+    min-width: 300px;
+    z-index: 1040;
+}
