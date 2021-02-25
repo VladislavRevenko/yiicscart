@@ -161,10 +161,16 @@ AppAsset::register($this);
                     <span class="hint">View product categories which are used to group products in your store.</span>
                 </a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">
+                <li class="dropdown-submenu"><a href="#">
                     <span>Products</span>
                     <span class="hint">View, add and edit products that are shown to visitors of your store.</span>
-                </a></li>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class=""><a href="#">Products on moderation</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li class=""><a href="#">Disapproved products</a></li>
+                </ul>
+                </li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">
                     <span>Features</span>
