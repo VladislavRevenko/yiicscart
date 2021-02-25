@@ -10,9 +10,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * SalesReportsController implements the CRUD actions for SalesReports model.
+ * SalesreportsController implements the CRUD actions for SalesReports model.
  */
-class SalesReportsController extends Controller
+class SalesreportsController extends Controller
 {
     /**
      * {@inheritdoc}

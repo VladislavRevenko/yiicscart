@@ -7,12 +7,9 @@ use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\bootstrap\Bootstrap4;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use yii\widgets\Menu;
-use kartik\bs4dropdown\Dropdown;
-use kartik\bs4dropdown\ButtonDropdown;
 
 AppAsset::register($this);
 ?>
@@ -118,7 +115,7 @@ AppAsset::register($this);
     ];
 
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar-nav navbar-right navbar-cscart-text'],
         'items' => $menuItems,
     ]);
     NavBar::end();

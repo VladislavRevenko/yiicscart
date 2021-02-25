@@ -146,6 +146,6 @@ a.desc:after {
     background-color: #0388cc;
 }
 
-.navbar-cscart-text a {
-    color: #daedf7;
+.navbar-cscart-text > li > a {
+    color: #daedf7 !important;
 }
