@@ -7,9 +7,12 @@ use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\bootstrap\Bootstrap4;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use yii\widgets\Menu;
+use kartik\bs4dropdown\Dropdown;
+use kartik\bs4dropdown\ButtonDropdown;
 
 AppAsset::register($this);
 ?>
@@ -135,8 +138,8 @@ AppAsset::register($this);
             'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
             'items' => [
                 ['label' => 'View orders', 'url' => ['orders/index']],
-                // ['label' => 'Shipments', 'url' => ['site/shipments']],
-                // ['label' => 'Sales report', 'url' => ['site/sales_report']],
+                ['label' => 'Shipments', 'url' => ['shipments/index']],
+                ['label' => 'Sales reports', 'url' => ['salesreports/index']],
                 // ['label' => 'Abandoned/Live carts', 'url' => ['site/cart_list']],
             ]],
             ['label' => 'Products', 'url' => ['site/products']],
