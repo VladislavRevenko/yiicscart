@@ -41,6 +41,19 @@ class OrdersController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'test' => 'test123',
+        ]);
+    }
+
+    public function actionTest()
+    {
+        $searchModel = new SearchOrders();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render(Yii::getAlias('test.twig'), [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'test' => 'test123'
         ]);
     }
 

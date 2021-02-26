@@ -152,6 +152,7 @@ a.desc:after {
 
 .btn-group {
     margin-top: 25px;
+    margin-left: 225px;
 }
 
 .btn-group .dropdown-menu >li >a .hint {
