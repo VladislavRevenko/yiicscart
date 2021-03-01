@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace backend\models;
 
 use Yii;
 
@@ -162,5 +162,15 @@ class Orders extends \yii\db\ActiveRecord
             'sd_bonus_loyalty' => 'Sd Bonus Loyalty',
             'sd_bonus_loyalty_id' => 'Sd Bonus Loyalty ID',
         ];
+    }
+
+    public static function fn_get_orders() {
+        $orders = Orders::find(['cscart_status_descriptions.description AS status_description'])
+            ->orderBy('order_id')
+            ->leftjoin('cscart_statuses', 'cscart_orders.status = cscart_statuses.status')
+            ->leftjoin('cscart_status_descriptions', 'cscart_statuses.status_id = cscart_status_descriptions.status_id')
+            ->all();
+
+        return $orders;
     }
 }

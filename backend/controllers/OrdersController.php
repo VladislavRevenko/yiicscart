@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use app\models\Orders;
+use backend\models\Orders;
 use app\models\SearchOrders;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -37,7 +37,7 @@ class OrdersController extends Controller
     {
         $searchModel = new SearchOrders();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
+        // var_dump($searchModel);
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -47,12 +47,17 @@ class OrdersController extends Controller
 
     public function actionTest()
     {
-        $searchModel = new SearchOrders();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // $searchModel = new SearchOrders();
+        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        // var_dump($dataProvider);
 
+        $orders = Orders::fn_get_orders();
+            echo '<pre>';
+var_dump($orders);
+echo '</pre>';
         return $this->render(Yii::getAlias('test.twig'), [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
+            // 'searchModel' => $searchModel,
+            'orders' => $orders,
             'test' => 'test123'
         ]);
     }

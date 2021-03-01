@@ -15,7 +15,22 @@
             <th width="17%"><a class="cm-ajax" href="" data-ca-target-id={$rev}>customer</a></th>
             <th width="14%"><a class="cm-ajax" href="" data-ca-target-id={$rev}>phone</a></th>
             <th class="mobile-hide">&nbsp;</th>
-            <th width="10%" class="right"><a class="cm-ajax" href="" data-ca-target-id="total"</a></th>
+            <th width="10%" class="right"><a class="cm-ajax" href="" data-ca-target-id="total"</a>total</th>
         </tr>
     </thead>
-</table>
+    {% for order in orders %}
+    <tr>
+        <td class="left mobile-hide">
+        <input type="checkbox" name="order_ids[]" value="" class="cm-item cm-item-status" /></td>
+        <td data-th="id">
+            <a href="http://localhost/yiicscart/backend/web/index.php/orders/view?id={{ order.order_id }}">Order {{ order.order_id }}</a>
+        </td>
+        <td data-th="status">{{ order.status }}</td>
+        <td class="nowrap" data-th="date">{{ order.timestamp|date('d/m/Y, H:i') }}</td>
+        <td data-th="customer">{{ order.firstname }} {{ order.lastname }}</td>
+        <td data-th="phone"><bdi>{% if order.phone %}<a href="tel">phone</a></bdi>{{ order.phone }}{% endif %}</td>
+        <td class="right" data-th="total">{{ order.total }}</td>
+    </tr>
+    {% endfor %}
+    </table>
+</div>
