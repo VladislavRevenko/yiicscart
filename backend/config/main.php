@@ -1,4 +1,7 @@
 <?php
+
+use yii\web\UrlNormalizer;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -53,14 +56,21 @@ return [
                 ],
             ],
         ],
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'normalizer' => [
+                'class' => 'yii\web\UrlNormalizer',
+                'action' => UrlNormalizer::ACTION_REDIRECT_PERMANENT, // используем временный редирект вместо постоянного
+            ],
             'rules' => [
+                // '/<cat:[\w-]+>/' => 'site/index',
+                '<cart:[\w-]+>s' => '<cart>/<action>',
+                '<orders:[\w-]+>s' => '<orders>/<action>',
+                '<salesreports:[\w-]+>s' => '<salesreports>/index',
+                '<shipments:[\w-]+>s' => '<shipments>/index',
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
