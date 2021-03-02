@@ -8,6 +8,7 @@
 
 To do:
 1. Починить ЧПУ, сейчас в адресной строке пропадает index.php
+2. Объединить статусы в одну таблицу?
 
 Documentation is at [docs/guide/README.md](docs/guide/README.md).
 

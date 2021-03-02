@@ -1,18 +1,18 @@
 <?php
 
-namespace backend\controllers;
+namespace app\controllers;
 
 use Yii;
-use app\models\Orders;
-use app\models\SearchOrders;
+use app\models\StatusDescriptions;
+use app\models\SearchStatusDescriptions;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * OrdersController implements the CRUD actions for Orders model.
+ * StatusdescriptionsController implements the CRUD actions for StatusDescriptions model.
  */
-class OrdersController extends Controller
+class StatusdescriptionsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,66 +30,45 @@ class OrdersController extends Controller
     }
 
     /**
-     * Lists all Orders models.
+     * Lists all StatusDescriptions models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SearchOrders();
+        $searchModel = new SearchStatusDescriptions();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        // var_dump($searchModel);
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'test' => 'test123',
-        ]);
-    }
-
-    public function actionTest()
-    {
-        // $searchModel = new SearchOrders();
-        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        // $status_description = $dataProvider->status->status_id;
-        // var_dump($dataProvider);
-// $model = new Orders();
-// echo $orders2->attributeLabels();
-        $orders = Orders::fn_get_orders();
-        // $order_status_id = Orders::getOrdersStatusId();
-//             echo '<pre>';
-// var_dump($orders);
-// echo '</pre>';
-
-        return $this->render(Yii::getAlias('test.twig'), [
-            // 'searchModel' => $searchModel,
-            // 'model' => $model,
-            'orders' => $orders,
         ]);
     }
 
     /**
-     * Displays a single Orders model.
-     * @param integer $id
+     * Displays a single StatusDescriptions model.
+     * @param integer $status_id
+     * @param string $lang_code
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($status_id, $lang_code)
     {
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($status_id, $lang_code),
         ]);
     }
 
     /**
-     * Creates a new Orders model.
+     * Creates a new StatusDescriptions model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Orders();
+        $model = new StatusDescriptions();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->order_id]);
+            return $this->redirect(['view', 'status_id' => $model->status_id, 'lang_code' => $model->lang_code]);
         }
 
         return $this->render('create', [
@@ -98,18 +77,19 @@ class OrdersController extends Controller
     }
 
     /**
-     * Updates an existing Orders model.
+     * Updates an existing StatusDescriptions model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     * @param integer $status_id
+     * @param string $lang_code
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($status_id, $lang_code)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($status_id, $lang_code);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->order_id]);
+            return $this->redirect(['view', 'status_id' => $model->status_id, 'lang_code' => $model->lang_code]);
         }
 
         return $this->render('update', [
@@ -118,29 +98,31 @@ class OrdersController extends Controller
     }
 
     /**
-     * Deletes an existing Orders model.
+     * Deletes an existing StatusDescriptions model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     * @param integer $status_id
+     * @param string $lang_code
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($status_id, $lang_code)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($status_id, $lang_code)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Orders model based on its primary key value.
+     * Finds the StatusDescriptions model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Orders the loaded model
+     * @param integer $status_id
+     * @param string $lang_code
+     * @return StatusDescriptions the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel($status_id, $lang_code)
     {
-        if (($model = Orders::findOne($id)) !== null) {
+        if (($model = StatusDescriptions::findOne(['status_id' => $status_id, 'lang_code' => $lang_code])) !== null) {
             return $model;
         }
 

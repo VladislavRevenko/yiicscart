@@ -3,16 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use app\models\Orders;
-use app\models\SearchOrders;
+use app\models\Statuses;
+use app\models\SearchStatuses;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * OrdersController implements the CRUD actions for Orders model.
+ * StatusesController implements the CRUD actions for Statuses model.
  */
-class OrdersController extends Controller
+class StatusesController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,44 +30,22 @@ class OrdersController extends Controller
     }
 
     /**
-     * Lists all Orders models.
+     * Lists all Statuses models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new SearchOrders();
+        $searchModel = new SearchStatuses();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        // var_dump($searchModel);
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'test' => 'test123',
-        ]);
-    }
-
-    public function actionTest()
-    {
-        // $searchModel = new SearchOrders();
-        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        // $status_description = $dataProvider->status->status_id;
-        // var_dump($dataProvider);
-// $model = new Orders();
-// echo $orders2->attributeLabels();
-        $orders = Orders::fn_get_orders();
-        // $order_status_id = Orders::getOrdersStatusId();
-//             echo '<pre>';
-// var_dump($orders);
-// echo '</pre>';
-
-        return $this->render(Yii::getAlias('test.twig'), [
-            // 'searchModel' => $searchModel,
-            // 'model' => $model,
-            'orders' => $orders,
         ]);
     }
 
     /**
-     * Displays a single Orders model.
+     * Displays a single Statuses model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -80,16 +58,16 @@ class OrdersController extends Controller
     }
 
     /**
-     * Creates a new Orders model.
+     * Creates a new Statuses model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Orders();
+        $model = new Statuses();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->order_id]);
+            return $this->redirect(['view', 'id' => $model->status_id]);
         }
 
         return $this->render('create', [
@@ -98,7 +76,7 @@ class OrdersController extends Controller
     }
 
     /**
-     * Updates an existing Orders model.
+     * Updates an existing Statuses model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -109,7 +87,7 @@ class OrdersController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->order_id]);
+            return $this->redirect(['view', 'id' => $model->status_id]);
         }
 
         return $this->render('update', [
@@ -118,7 +96,7 @@ class OrdersController extends Controller
     }
 
     /**
-     * Deletes an existing Orders model.
+     * Deletes an existing Statuses model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -132,15 +110,15 @@ class OrdersController extends Controller
     }
 
     /**
-     * Finds the Orders model based on its primary key value.
+     * Finds the Statuses model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Orders the loaded model
+     * @return Statuses the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Orders::findOne($id)) !== null) {
+        if (($model = Statuses::findOne($id)) !== null) {
             return $model;
         }
 

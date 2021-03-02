@@ -1,8 +1,10 @@
 <?php
 
-namespace backend\models;
+namespace app\models;
 
 use Yii;
+use app\models\Statuses;
+use app\models\StatusDescriptions;
 
 /**
  * This is the model class for table "cscart_orders".
@@ -82,9 +84,9 @@ class Orders extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['parent_order_id', 'company_id', 'issuer_id', 'user_id', 'timestamp', 'payment_id', 'repaid', 'localization_id', 'profile_id', 'storefront_id', 'sd_bonus_loyalty_id'], 'integer'],
+            [['parent_order_id', 'company_id', 'issuer_id', 'user_id', 'timestamp', 'payment_id', 'repaid', 'localization_id', 'profile_id', 'storefront_id', 'description'], 'integer'],
             [['total', 'subtotal', 'discount', 'subtotal_discount', 'payment_surcharge', 'shipping_cost'], 'number'],
-            [['notes', 'details', 'promotions', 'sd_bonus_loyalty'], 'string'],
+            [['notes', 'details', 'promotions'], 'string'],
             [['localization_id', 'sd_bonus_loyalty'], 'required'],
             [['is_parent_order', 'status', 'tax_exempt'], 'string', 'max' => 1],
             [['shipping_ids', 'promotion_ids', 'company', 'b_address', 'b_address_2', 's_address', 's_address_2'], 'string', 'max' => 255],
@@ -159,18 +161,27 @@ class Orders extends \yii\db\ActiveRecord
             'localization_id' => 'Localization ID',
             'profile_id' => 'Profile ID',
             'storefront_id' => 'Storefront ID',
-            'sd_bonus_loyalty' => 'Sd Bonus Loyalty',
-            'sd_bonus_loyalty_id' => 'Sd Bonus Loyalty ID',
         ];
     }
 
-    public static function fn_get_orders() {
-        $orders = Orders::find(['cscart_status_descriptions.description AS status_description'])
-            ->orderBy('order_id')
-            ->leftjoin('cscart_statuses', 'cscart_orders.status = cscart_statuses.status')
-            ->leftjoin('cscart_status_descriptions', 'cscart_statuses.status_id = cscart_status_descriptions.status_id')
-            ->all();
+    public static function fn_get_orders() 
+    {   
+        $orders = Yii::$app->db->createCommand(
+            'SELECT *, cscart_status_descriptions.description AS status_description FROM cscart_orders' 
+            . ' LEFT JOIN cscart_statuses ON cscart_statuses.status = cscart_orders.status'
+            . ' LEFT JOIN cscart_status_descriptions ON cscart_status_descriptions.status_id = cscart_statuses.status_id')
+            ->queryAll();
+        // $orders = Orders::find()
+        //     ->orderBy('order_id')
+        //     ->joinWith('ordersStatusId')
+        //     ->all();
 
         return $orders;
+    }
+
+    public function getOrdersStatusId() 
+    {
+        return $this->hasOne(Statuses::class, ['status' => 'status'])
+            ->via('orderStatus');
     }
 }

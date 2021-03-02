@@ -25,7 +25,7 @@
         <td data-th="id">
             <a href="http://localhost/yiicscart/backend/web/index.php/orders/view?id={{ order.order_id }}">Order {{ order.order_id }}</a>
         </td>
-        <td data-th="status">{{ order.status }}</td>
+        <td data-th="status">{{ order.status_description }}</td>
         <td class="nowrap" data-th="date">{{ order.timestamp|date('d/m/Y, H:i') }}</td>
         <td data-th="customer">{{ order.firstname }} {{ order.lastname }}</td>
         <td data-th="phone"><bdi>{% if order.phone %}<a href="tel">phone</a></bdi>{{ order.phone }}{% endif %}</td>
