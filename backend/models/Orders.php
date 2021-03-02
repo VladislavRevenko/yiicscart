@@ -171,17 +171,12 @@ class Orders extends \yii\db\ActiveRecord
             . ' LEFT JOIN cscart_statuses ON cscart_statuses.status = cscart_orders.status'
             . ' LEFT JOIN cscart_status_descriptions ON cscart_status_descriptions.status_id = cscart_statuses.status_id')
             ->queryAll();
-        // $orders = Orders::find()
-        //     ->orderBy('order_id')
-        //     ->joinWith('ordersStatusId')
-        //     ->all();
 
         return $orders;
     }
 
     public function getOrdersStatusId() 
     {
-        return $this->hasOne(Statuses::class, ['status' => 'status'])
-            ->via('orderStatus');
+        return $this->hasOne(Statuses::class, ['status' => 'status']);
     }
 }

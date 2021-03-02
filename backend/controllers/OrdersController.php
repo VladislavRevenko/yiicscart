@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use app\models\Orders;
 use app\models\SearchOrders;
+use app\models\Statuses;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -47,21 +48,18 @@ class OrdersController extends Controller
 
     public function actionTest()
     {
-        // $searchModel = new SearchOrders();
-        // $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-        // $status_description = $dataProvider->status->status_id;
-        // var_dump($dataProvider);
-// $model = new Orders();
-// echo $orders2->attributeLabels();
         $orders = Orders::fn_get_orders();
-        // $order_status_id = Orders::getOrdersStatusId();
+
+        // $params = ['type' => 'O'];
+        $statuses = Statuses::getStatusesList();
+
 //             echo '<pre>';
-// var_dump($orders);
+// var_dump($statuses);
 // echo '</pre>';
 
         return $this->render(Yii::getAlias('test.twig'), [
             // 'searchModel' => $searchModel,
-            // 'model' => $model,
+            'statuses' => $statuses,
             'orders' => $orders,
         ]);
     }

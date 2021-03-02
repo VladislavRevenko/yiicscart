@@ -54,4 +54,15 @@ class Statuses extends \yii\db\ActiveRecord
     {
         return $this->hasOne(StatusesDescriptions::class, ['status_id' => 'status_id']);
     }
+
+    public static function getStatusesList()
+    {
+        $statuses = Yii::$app->db->createCommand(
+            'SELECT * FROM cscart_statuses' 
+            . ' LEFT JOIN cscart_status_descriptions ON cscart_status_descriptions.status_id = cscart_statuses.status_id'
+            . ' WHERE type = "O"')
+            ->queryAll();
+
+        return $statuses;
+    }
 }

@@ -1,0 +1,28 @@
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle o-status-{{ order.status|lower }}" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    {{ order.status_description }}
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        {% for status in statuses %}
+        <li><a href="#">{{ status.description }}</a></li>
+        {% endfor %}
+        <li role="separator" class="divider"></li>
+        <li>
+            <a>
+                <label>
+                    <input type="checkbox" value="Y" checked="checked" class="user-success"></input>
+                    Notify customer
+                </label>
+            </a>
+        </li>
+        <li>
+            <a>
+                <label>
+                    <input type="checkbox" value="Y" checked="checked" class="user-success"></input>
+                    Notify department
+                </label>
+            </a>
+        </li>
+    </ul>
+</div>
