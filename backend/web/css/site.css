@@ -129,6 +129,15 @@ a.desc:after {
     }
 }
 
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,'San Francisco',Roboto,'Segoe UI',Ubuntu,'Helvetica Neue',sans-serif;
+    font-size: 13px;
+    line-height: 20px;
+    color: #333;
+    background-color: #fff;
+}
+
 .nav > li > form > button.logout:focus,
 .nav > li > form > button.logout:hover {
     text-decoration: none;
@@ -150,6 +159,10 @@ a.desc:after {
     color: #daedf7 !important;
 }
 
+.dropdown-menu >li >a {
+    padding: 8px 13px;
+}
+
 .btn-group {
     margin-top: 25px;
     margin-left: 225px;
@@ -165,6 +178,12 @@ a.desc:after {
 .btn-group .dropdown-menu >li >a >span {
     display: block;
     white-space: normal;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+a, a:hover {
+    cursor: pointer;
 }
 
 .btn-group .dropdown-menu {
@@ -227,7 +246,9 @@ input[type="checkbox"]:checked:after, input[type="checkbox"]:indeterminate:after
     color: white;
 }
 
+
 /* Color for order switch dropdown selectors */
+
 
 .o-status-c {
     color: #fff;
@@ -254,7 +275,9 @@ input[type="checkbox"]:checked:after, input[type="checkbox"]:indeterminate:after
     background-color: #fd6d3b;
 }
 
+
 /* Pagination styles */
+
 
 .pagination-wrap {
     display: flex;
@@ -294,4 +317,14 @@ a[class^="icon-"], a[class*=" icon-"], a[class^="exicon-"], a[class*=" exicon-"]
 
 .pagination-wrap .pagination ul > li > a {
     padding: 5px 18px;
+}
+
+.sidebar {
+    background: none;
+    width: 230px;
+    min-width: 230px;
+    max-width: 230px;
+    padding-left: 10px;
+    height: calc(100% - 20px);
+    margin-top: -10px;
 }

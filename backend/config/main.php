@@ -64,7 +64,6 @@ return [
                 'action' => UrlNormalizer::ACTION_REDIRECT_PERMANENT, // используем временный редирект вместо постоянного
             ],
             'rules' => [
-                'defaultRoute' => 'site/index',
                 '<cart:[\w-]+>s' => '<cart>/<action>',
                 '<orders:[\w-]+>s' => '<orders>/<action>',
                 '<salesreports:[\w-]+>s' => '<salesreports>/index',
