@@ -176,6 +176,10 @@ a.desc:after {
     z-index: 1040;
 }
 
+.table thead th a {
+    color: #333;
+}
+
 .table >td {
     padding: 8px;
     line-height: 20px;
@@ -223,6 +227,8 @@ input[type="checkbox"]:checked:after, input[type="checkbox"]:indeterminate:after
     color: white;
 }
 
+/* Color for order switch dropdown selectors */
+
 .o-status-c {
     color: #fff;
     background-color: #a7d769;
@@ -231,7 +237,7 @@ input[type="checkbox"]:checked:after, input[type="checkbox"]:indeterminate:after
 .o-status-i {
     color: #fff;
     background-color: #d4d4d4;
-}
+} 
 
 .o-status-b {
     color: #fff;
@@ -246,4 +252,46 @@ input[type="checkbox"]:checked:after, input[type="checkbox"]:indeterminate:after
 .o-status-f {
     color: #fff;
     background-color: #fd6d3b;
+}
+
+/* Pagination styles */
+
+.pagination-wrap {
+    display: flex;
+}
+
+.pagination-wrap .pagination {
+    margin: 6px 0px 9px 0px;
+}
+
+.pagination-wrap .pagination-dropdown {
+    margin: 6px 0px 9px 0px;
+}
+
+a[class^="icon-"], a[class*=" icon-"], a[class^="exicon-"], a[class*=" exicon-"], a [class^="icon-"], a [class*=" icon-"], a [class^="exicon-"], a [class*=" exicon-"] {
+    display: inline-block;
+}
+
+.icon-angle-left:before {
+    content: "\f104";
+}
+
+.icon-angle-right:before {
+    content: "\f104";
+}
+
+.icon-double-angle-left:before {
+    content: "\f101";
+}
+
+.icon-double-angle-right:before {
+    content: "\f101";
+}
+
+.pagination ul > li {
+    display: inline;
+}
+
+.pagination-wrap .pagination ul > li > a {
+    padding: 5px 18px;
 }
