@@ -337,6 +337,22 @@ a[class^="icon-"], a[class*=" icon-"], a[class^="exicon-"], a[class*=" exicon-"]
     border-bottom-left-radius: 3px;
 }
 
+.icon {
+    width: 14px;
+    height: 14px;
+}
+
+[class^="icon-"], [class*=" icon-"], [class^="exicon-"], [class*=" exicon-"] {
+    display: inline-block;
+    background: none;
+    font-size: 14px;
+    line-height: 14px;
+    vertical-align: baseline;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 0;
+}
+
 li {
     line-height: 20px;
 }
