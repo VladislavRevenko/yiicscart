@@ -3,14 +3,14 @@
     <div class="pagination pagination-start">
         <ul>
             {# Button "<<" #}
-            <li class="pagination-item">
+            <li>
                 <a class="pagination-item">
                     <i class="icon icon-double-angle-left"></i>
                 </a>
             </li>
             
             {# Button "<" #}
-            <li class="">
+            <li>
                 <a class="pagination-item">
                     <i class="icon icon-angle-left"></i>
                 </a>
@@ -20,23 +20,24 @@
 
     {# Dropdown button #}
     <div class="pagination-dropdown">
-        <li>
-            <a data-ca-scroll=".cm-pagination-container" class="pagination-dropdown-per-page" href=""></a>
-        </li>
+        <div class="btn-group">
+            <a data-ca-scroll=".cm-pagination-container" class="btn-text btn dropdown-toggle" href="">
+                <span>1</span> - <span>99</span>&nbsp;of&nbsp;<span>99</span><span class="caret"></span></a>
+        </div>
     </div>
 
     {# Right buttons #}
     <div class="pagination pagination-end">
         <ul>
             {# Button ">" #}
-            <li class="pagination-item">
+            <li>
                 <a class="pagination-item">
                     <i class="icon icon-angle-right"></i>
                 </a>
             </li>
             
             {# Button ">>" #}
-            <li class="pagination-item">
+            <li>
                 <a class="pagination-item">
                     <i class="icon icon-double-angle-right"></i>
                 </a>

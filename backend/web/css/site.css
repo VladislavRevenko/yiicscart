@@ -311,12 +311,69 @@ a[class^="icon-"], a[class*=" icon-"], a[class^="exicon-"], a[class*=" exicon-"]
     content: "\f101";
 }
 
+.pagination >ul {
+    display: inline-block;
+    zoom: 1;
+    margin-left: 0;
+    margin-bottom: 0;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    padding-left: 0px !important;
+}
+
+.pagination ul > li > a, .pagination ul > li > span {
+    float: left;
+    padding: 4px 12px;
+    line-height: 20px;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #d3dbe2;
+    border-left-width: 0;
+}
+
+.pagination ul > li:first-child > a, .pagination ul > li:first-child > span {
+    border-left-width: 1px;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+li {
+    line-height: 20px;
+}
+.pagination-wrap .pagination-dropdown .btn-group .btn-text {
+    color: #0388cc;
+    margin-top: 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.pagination-wrap .pagination-dropdown .btn-group {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    background-color: #fff;
+    border-top: 1px solid #d3dbe2;
+    border-bottom: 1px solid #d3dbe2;
+    min-width: 90px;
+    margin-top: 0px;
+    margin-left: 0px;
+}
+
 .pagination ul > li {
     display: inline;
 }
 
 .pagination-wrap .pagination ul > li > a {
     padding: 5px 18px;
+}
+
+.clearfix:before, .clearfix:after {
+    display: table;
+    content: "";
+    line-height: 0;
 }
 
 .sidebar {
