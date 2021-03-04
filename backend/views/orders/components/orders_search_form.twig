@@ -1,1 +1,29 @@
-sidebar2
+<div class="sidebar-row">
+<h6>Search</h6>
+
+<form action="" name="orders_search_form" method="get" class="">
+
+    <div class="sidebar-field">
+        <label for="cname">Customer</label>
+        <input type="text" name="cname" id="cname" value="" size="30" />
+    </div>
+
+    <div class="sidebar-field">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" value="" size="30"/>
+    </div>
+
+    <div class="sidebar-field">
+        <label for="phone">Phone</label>
+        <input class="cm-phone" type="text" name="phone" id="phone" value="" size="50"/>
+    </div>
+
+    <div class="sidebar-field">
+        <label for="total_from">Total</label>
+        <input type="text" class="input-small" name="total_from" id="total_from" value="" size="3" /> - <input type="text" class="input-small" name="total_to" value="" size="3" />
+    </div>
+</form>
+    <div class="sidebar-field">
+        {% include 'buttons/search.twig' %}
+    </div>
+</div>
