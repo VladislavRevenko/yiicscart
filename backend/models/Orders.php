@@ -98,7 +98,7 @@ class Orders extends \yii\db\ActiveRecord
             [['validation_code'], 'string', 'max' => 20],
         ];
     }
-
+   
     /**
      * {@inheritdoc}
      */

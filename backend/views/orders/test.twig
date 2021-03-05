@@ -7,12 +7,8 @@
                     <thead data-ca-bulkedit-default-object="true">
                         <tr>
                             <th width="6%" class="left mobile-hide">
-                                <input type="checkbox"
-                                    class="bulkedit-toggler hide"
-                                    data-ca-bulkedit-toggler="true"
-                                    data-ca-bulkedit-disable="[data-ca-bulkedit-default-object=true]" 
-                                    data-ca-bulkedit-enable="[data-ca-bulkedit-expanded-object=true]"
-                                />
+                                <a href=""></a>
+                                <input type="checkbox" class="pull-left cm-check-items user-success"/>
                             </th>
                             <th width="15%"><a class="cm-ajax" href="" data-ca-target-id={$rev}>ID</a></th>
                             <th width="15%"><a class="cm-ajax" href="" data-ca-target-id={$rev}>Status</a></th>
@@ -26,12 +22,12 @@
                     {% for order in orders %}
                     <tr>
                         <td width=6% class="left mobile-hide">
-                        <input type="checkbox" name="order_ids[]" value="" class="cm-item cm-item-status hide" /></td>
+                            <input type="checkbox" name="order_ids[]" value="" class="cm-item cm-item-status hide" /></td>
                         <td data-th="id">
-                            <a href="http://localhost/yiicscart/backend/web/index.php/orders/view?id={{ order.order_id }}">Order {{ order.order_id }}</a>
+                            <a href="http://localhost/yiicscart/backend/web/index.php/orders/view?id={{ order.order_id }}">Order #{{ order.order_id }}</a>
                         </td>
                         <td data-th="status">
-                    {% include 'common/select_popup.twig' %}</td>
+                            {% include 'common/select_popup.twig' %}</td>
                         <td class="nowrap" data-th="date">{{ order.timestamp|date('d/m/Y, H:i') }}</td>
                         <td data-th="customer">
                             {% if order.email %}<a href="mailto:{{ o.email }}">@</a> {% endif %} 

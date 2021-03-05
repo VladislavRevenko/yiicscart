@@ -161,9 +161,9 @@ body {
     color: #daedf7 !important;
 }
 
-.dropdown-menu > li > a {
+/* .dropdown-menu > li > a {
     padding: 8px 13px;
-}
+} */
 
 .btn-group {
     margin-top: 25px;
@@ -177,11 +177,24 @@ body {
     font-weight: 400;
 }
 
+.dropdown-menu > li > a.dropdown--text-wrap {
+    width: 100%;
+    min-width: 200px;
+    max-height: 50px;
+}
+
 .btn-group .dropdown-menu >li >a >span {
     display: block;
     white-space: normal;
     font-weight: 500;
     font-size: 13px;
+}
+
+.dropdown-menu {
+    text-align: left !important;
+    border: 1px solid #d5d5d5;
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 a, a:hover {
@@ -235,6 +248,11 @@ input[type="checkbox"]:checked, input[type="checkbox"]:indeterminate {
     line-height: 20px;
     color: #333;
     white-space: nowrap;
+}
+
+.btn-info[class*="o-status-"].dropdown-toggle {
+    font-size: 13px;
+    line-height: 21px;
 }
 
 input[type="checkbox"]:checked:after {
@@ -368,6 +386,7 @@ a[class^="icon-"], a[class*=" icon-"], a[class^="exicon-"], a[class*=" exicon-"]
 li {
     line-height: 20px;
 }
+
 .pagination-wrap .pagination-dropdown .btn-group .btn-text {
     color: #0388cc;
     margin-top: 0;
@@ -410,9 +429,9 @@ li {
 
 .sidebar {
     background: none;
-    width: 230px;
+    width: 240px;
     min-width: 230px;
-    max-width: 230px;
+    max-width: 240px;
     padding-left: 10px;
     height: calc(100% - 20px);
     margin-top: -10px;
@@ -443,6 +462,7 @@ li {
     border-radius: 3px;
     /* box-shadow: 0 1px 4px rgba(0,0,0,0.1); */
 }
+
 .admin-content-wrapper .sidebar .sidebar-row h6 {
     margin: 0 0 15px;
     color: #1a1a1a;
@@ -450,6 +470,7 @@ li {
     font-weight: 600;
     font-size: 16px;
 }
+
 .admin-content-wrapper .sidebar .sidebar-row .sidebar-field {
     margin-bottom: 4px;
     color: #555;
@@ -460,12 +481,16 @@ li {
 }
 
 .admin-content-wrapper .sidebar .sidebar-row .sidebar-field .input-small {
-    width: 83px !important;
+    width: 88px !important;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+}
+
+form {
+    margin: 0 0 20px;
 }
 
 .dropdown-menu .divider {
@@ -476,6 +501,9 @@ textarea, input[type="text"], input[type="password"], input[type="datetime"], in
     background-color: #fff;
     border: 1px solid #d3dbe2;
     padding: 5px 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    line-height: 20px;
     box-shadow: none;
     box-sizing: border-box;
     transition: border linear .2s, box-shadow linear .2s;
@@ -489,11 +517,6 @@ label, input, button, select, textarea {
 
 input, button, select, textarea {
     font-family: -apple-system,BlinkMacSystemFont,'San Francisco',Roboto,'Segoe UI',Ubuntu,'Helvetica Neue',sans-serif;
-}
-
-.admin-content-wrapper .sidebar .sidebar-row .sidebar-field {
-    margin-bottom: 4px;
-    color: #555;
 }
 
 .admin-content-wrap {
@@ -515,4 +538,9 @@ input, button, select, textarea {
     padding-top: 15px;
     padding-bottom: 20px;
     min-width: 1010px;
+}
+
+.sidebar .sidebar-row .sidebar-field .advanced-search {
+    float: right;
+    margin: 6px 6px 0px 0px;
 }
