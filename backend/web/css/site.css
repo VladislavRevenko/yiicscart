@@ -30,9 +30,9 @@ body.blank .wrap > div {
     width: 100%;
 }
 
-.wrap > .container {
-    padding: 70px 15px 20px;
-}
+/* .wrap > .admin-content-wrap {
+    padding: 20px 15px 20px;
+} */
 
 .footer {
     height: 60px;
@@ -161,7 +161,7 @@ body {
     color: #daedf7 !important;
 }
 
-.dropdown-menu >li >a {
+.dropdown-menu > li > a {
     padding: 8px 13px;
 }
 
@@ -201,7 +201,7 @@ a, a:hover {
     color: #333;
 }
 
-.table >td {
+.table th, .table td {
     padding: 8px;
     line-height: 20px;
     text-align: left;
@@ -209,9 +209,11 @@ a, a:hover {
     border-top: 1px solid #ededed;
 }
 
+.table-middle tr td, .table-middle tr th {
+    vertical-align: middle !important;
+}
+
 input[type="checkbox"] {
-    -moz-appearance: none;
-    -webkit-appearance: none;
     width: 25px;
     height: 25px;
     border: 1px solid rgba(0,0,0,0.1);
@@ -227,7 +229,7 @@ input[type="checkbox"]:checked, input[type="checkbox"]:indeterminate {
 
 .dropdown-menu > li > a {
     display: block;
-    padding: 3px 20px;
+    padding: 8px 13px;
     clear: both;
     font-weight: 500;
     line-height: 20px;
@@ -344,6 +346,14 @@ a[class^="icon-"], a[class*=" icon-"], a[class^="exicon-"], a[class*=" exicon-"]
     height: 14px;
 }
 
+.right {
+    text-align: right !important;
+}
+
+.hide {
+    display: none;
+}
+
 [class^="icon-"], [class*=" icon-"], [class^="exicon-"], [class*=" exicon-"] {
     display: inline-block;
     background: none;
@@ -394,6 +404,10 @@ li {
     line-height: 0;
 }
 
+
+/* Sidebar */
+
+
 .sidebar {
     background: none;
     width: 230px;
@@ -404,19 +418,7 @@ li {
     margin-top: -10px;
 }
 
-.main-content {
-    min-height: 100%;
-    background: #fff;
-    padding-right: 10px;
-    padding-top: 15px;
-    padding-bottom: 20px;
-    min-width: 940px;
-}
-
-
-/* Sidebar */
-
-.admin-content-wrap .sidebar .sidebar-row {
+.admin-content-wrapper .sidebar .sidebar-row {
     padding: 18px 14px 20px;
     margin-top: 25px;
     background-color: #f8f8f8;
@@ -424,29 +426,50 @@ li {
     box-shadow: 0 1px 4px rgba(0,0,0,0.1);
 }
 
-.admin-content-wrap .sidebar .sidebar-row h6 {
+.content-wrap {
+    background: #fff;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.admin-content-wrapper .content .content-wrap {
+    position: relative;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    min-width: 982px;
+    border-radius: 3px;
+    /* box-shadow: 0 1px 4px rgba(0,0,0,0.1); */
+}
+.admin-content-wrapper .sidebar .sidebar-row h6 {
     margin: 0 0 15px;
     color: #1a1a1a;
     text-transform: none;
     font-weight: 600;
     font-size: 16px;
 }
-.admin-content-wrap .sidebar .sidebar-row .sidebar-field {
+.admin-content-wrapper .sidebar .sidebar-row .sidebar-field {
     margin-bottom: 4px;
     color: #555;
 }
 
-.admin-content-wrap .sidebar .sidebar-row .sidebar-field input[type="text"], .admin-content-wrap .sidebar .sidebar-row .sidebar-field select {
+.admin-content-wrapper .sidebar .sidebar-row .sidebar-field input[type="text"], .admin-content-wrapper .sidebar .sidebar-row .sidebar-field select {
     width: 100%;
 }
 
-.admin-content-wrap .sidebar .sidebar-row .sidebar-field .input-small {
+.admin-content-wrapper .sidebar .sidebar-row .sidebar-field .input-small {
     width: 83px !important;
 }
 
 label {
     display: block;
     margin-bottom: 5px;
+}
+
+.dropdown-menu .divider {
+    margin: 0px;
 }
 
 textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
@@ -468,7 +491,28 @@ input, button, select, textarea {
     font-family: -apple-system,BlinkMacSystemFont,'San Francisco',Roboto,'Segoe UI',Ubuntu,'Helvetica Neue',sans-serif;
 }
 
-.admin-content-wrap .sidebar .sidebar-row .sidebar-field {
+.admin-content-wrapper .sidebar .sidebar-row .sidebar-field {
     margin-bottom: 4px;
     color: #555;
+}
+
+.admin-content-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: calc(100% - 85px);
+    margin: 0 auto;
+    padding-left: 0px;
+    transition: all 0.2s ease-in-out;
+    width: 100%;
+    max-width: 1240px;
+}
+
+.admin-content-wrap .content {
+    min-height: 100%;
+    background: #eef1f3;
+    padding-right: 10px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    min-width: 1010px;
 }

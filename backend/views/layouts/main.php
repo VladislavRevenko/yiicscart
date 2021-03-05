@@ -243,7 +243,7 @@ AppAsset::register($this);
         </div>
     </div>
 
-    <div class="container">
+    <div class="admin-content-wrap">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
