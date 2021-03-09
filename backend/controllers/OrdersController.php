@@ -77,6 +77,19 @@ class OrdersController extends Controller
         ]);
     }
 
+     /**
+     * Displays a single Orders model.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionDetails($id)
+    {
+        return $this->render(Yii::getAlias('details.twig'), [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
     /**
      * Creates a new Orders model.
      * If creation is successful, the browser will be redirected to the 'view' page.
