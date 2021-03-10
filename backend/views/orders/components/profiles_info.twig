@@ -1,0 +1,100 @@
+<div class="sidebar-row">
+    <h6>Customer information</h6>
+    <div class="profile-info">
+        <i class="icon-user"></i>
+        <p class="strong">
+            {% set firstname = model.firstname %}
+            {% set lastname = model.lastname %}
+            {% if firstname and lastname %}
+                {% if model.user_id %}
+                    <a href="profiles.update?user_id={{ model.user_id }}">{{ firstname }} {{ lastname }}</a>,
+                {% elseif firstname and lastname %}
+                    {{ firstname }} {{ lastname }},
+                {% endif %}
+            {% endif %}
+            <a class="profile-info__email" href="mailto:{{ model.email }}">{{ model.email }}</a>
+        </p>
+        {% if model.ip_address %}
+            <span>Ip address:</span>
+            {{ model.ip_address }}
+        {% endif %}
+        <div class="clear">
+            {% if model.phone %}
+                <span>Phone:</span>
+                <a href="tel:{{ model.phone }}"><bdi>{{ model.phone }}</bdi></a>
+            {% endif %}
+            {% if model.fax %}
+                <span>Fax:</span>
+                <span>{{ model.fax }}</span>
+            {% endif %}
+            {% if model.company %}
+                <span>Company:</span>
+                <span>{{ model.company }}</span>
+            {% endif %}
+            {% if model.url %}
+                <span>Website:</span>
+                <span>{{ model.url }}</span>
+            {% endif %}
+        </div>
+    </div>
+</div>
+<div class="sidebar-row">
+    <h6>Shipping address</h6>
+     <div class="profile-info">
+        <i class="icon-truck"></i>
+        {% if model.s_firstname or model.s_lastname %}
+            <p class="strong">{{ model.s_firstname }} {{ model.s_lastname }}</p>
+        {% endif %}
+        {% if model.s_address %}
+            <p>{{ model.s_address }}</p>
+        {% endif %}
+        {% if model.s_address_2 %}
+            <p>{{ model.s_address_2 }}</p>
+        {% endif %}
+        {% if model.s_city or model.s_state_descr or model.s_zipcode %}
+            <p>{{ model.s_city }}
+                {% if model.s_city and (model.s_state_descr or model.s_zipcode) %}
+                    ,
+                {% endif %}  
+                {{ model.s_state_descr }} {{ model.s_zipcode }}
+            </p>
+        {% endif %}
+        {% if model.s_country_descr %}
+            <p>{{ model.s_country_descr }}</p>
+        {% endif %}
+        {% if model.s_phone %}
+            <a href="tel:{{ model.s_phone }}"><bdi>{{ model.s_phone }}</bdi></a>
+        {% endif %}
+        {% if model.s_address_type %}
+            <p>Address type: {{ model.s_address_type }}</p>
+        {% endif %}
+    </div>
+</div>
+<div class="sidebar-row">
+    <h6>Billing address</h6>
+    <div class="profile-info">
+        <i class="icon-tag"></i>
+        {% if model.b_firstname or model.b_lastname %}
+            <p class="strong">{{ model.b_firstname }} {{ model.b_lastname }}</p>
+        {% endif %}
+        {% if model.b_address %}
+            <p>{{ model.b_address }}</p>
+        {% endif %}
+        {% if model.b_address_2 %}
+            <p>{{ model.b_address_2 }}</p>
+        {% endif %}
+        {% if model.b_city or model.b_state_descr or model.b_zipcode %}
+            <p>{{ model.b_city }}
+                {% if model.b_city and (model.b_state_descr or model.b_zipcode) %}
+                ,
+                {% endif %} {{ model.b_state_descr }} {{ model.b_zipcode }}
+            </p>
+        {% endif %}
+        {% if model.b_country_descr %}
+            <p>{{ model.b_country_descr }}</p>
+        {% endif %}
+        {% if model.b_phone %}
+            <a href="tel:{{ model.b_phone }}"><bdi>{{ model.b_phone }}</bdi></a>
+        {% endif %}
+    </div> 
+</div>

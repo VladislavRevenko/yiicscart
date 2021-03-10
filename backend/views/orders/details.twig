@@ -1,17 +1,12 @@
 <div class="admin-content-wrapper row">
     <div class="sidebar col-lg-2">
-        <div class="sidebar-row">
-            <h6>Customer information</h6>
-        </div>
-        <div class="sidebar-row">
-            <h6>Shipping address</h6>
-        </div>
-        <div class="sidebar-row">
-            <h6>Billing address</h6> 
-        </div>
+        {% include 'components/profiles_info.twig' %}
     </div>
     <div class="content col-lg-9">
-        <div class="content-wrap">test1111
+        <div class="content-wrap">
+            <form action="" method="post" name="order_info_form" id="order_info_form" class="form-horizontal form-edit order-info-form">
+                
+            </form>
         </div>
     </div>
 </div>
