@@ -75,7 +75,7 @@ class Orders extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'cscart_orders';
+        return '{{%orders}}';
     }
 
     /**
@@ -175,10 +175,24 @@ class Orders extends \yii\db\ActiveRecord
         return $orders;
     }
 
+    public static function getOrder($order_id)
+    {
+        if (!empty($order_id)) {
+            $order = Yii::$app->db->createCommand(
+                'SELECT * FROM {{%orders}} WHERE order_id=:order_id')
+                ->bindValue(':order_id', $order_id)
+                ->queryAll();
+        }
+
+        // echo '<pre>';
+        // var_dump($order);
+        // echo '</pre>';
+    }
+
     public static function getAdditionalOrderData($order_id)
     {
         $order_details = Yii::$app->db->createCommand(
-            'SELECT * FROM cscart_order_details WHERE order_id=:order_id')
+            'SELECT * FROM {{%order_details}} WHERE order_id=:order_id')
             ->bindValue(':order_id', $order_id)
             ->queryAll();
 
@@ -186,26 +200,24 @@ class Orders extends \yii\db\ActiveRecord
         $order_details['extra'] = unserialize($order_details['extra']);
 
         $order_data['R'] =  Yii::$app->db->createCommand(
-            'SELECT * FROM cscart_order_data WHERE order_id=:order_id AND type=:type')
+            'SELECT * FROM {{%order_data}} WHERE order_id=:order_id AND type=:type')
             ->bindValue(':order_id', $order_id)
             ->bindValue(':type', 'R')
             ->queryAll();
         
         $order_data['L'] =  Yii::$app->db->createCommand(
-            'SELECT * FROM cscart_order_data WHERE order_id=:order_id AND type=:type')
+            'SELECT * FROM {{%order_data}} WHERE order_id=:order_id AND type=:type')
             ->bindValue(':order_id', $order_id)
             ->bindValue(':type', 'L')
             ->queryAll();
         
         $order_data['R'] = $order_data['R'][0];
         $order_data['L'] = $order_data['L'][0];
+        // $order_data['R']['data'] = $order_data['R']['data'][0];
+        // $order_data['L']['data'] = $order_data['L']['data'][0];
 
         $order_data['R']['data'] = unserialize($order_data['R']['data']);
         $order_data['L']['data'] = unserialize($order_data['L']['data']);
-
-//                     echo '<pre>';
-// var_dump($order_data);
-// echo '</pre>';
     }
 
     public function getOrdersStatusId() 

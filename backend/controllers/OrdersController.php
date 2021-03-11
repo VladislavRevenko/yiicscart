@@ -87,6 +87,7 @@ class OrdersController extends Controller
     {   
         $statuses = Statuses::getStatusesList();
         $additional_order_data = Orders::getAdditionalOrderData($id);
+        $order = Orders::getOrder($id);
         
         return $this->render(Yii::getAlias('details.twig'), [
             'model' => $this->findModel($id),
