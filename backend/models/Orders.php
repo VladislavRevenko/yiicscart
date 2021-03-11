@@ -182,11 +182,25 @@ class Orders extends \yii\db\ActiveRecord
                 'SELECT * FROM {{%orders}} WHERE order_id=:order_id')
                 ->bindValue(':order_id', $order_id)
                 ->queryAll();
+            
+            if (!empty($order)) {
+                $order['products'] = Yii::$app->db->createCommand(
+                    'SELECT {{%order_details}}.*, {{%product_descriptions}}.product, {{%products}}.status as product_status ' 
+                    . 'FROM {{%order_details}} '
+                    . 'LEFT JOIN {{%product_descriptions}} ON {{%order_details}}.product_id = {{%product_descriptions}}.product_id '
+                    . 'LEFT JOIN {{%products}} ON {{%order_details}}.product_id = {{%products}}.product_id '
+                    . 'WHERE {{%order_details}}.order_id = :order_id ORDER BY {{%product_descriptions.product}}'
+                )
+                ->bindValue(':order_id', $order_id)
+                ->queryAll();
+                $order['products'][$order['products'][0]['item_id']] = $order['products'][0];
+                unset($order['products'][0]);
+            }
         }
 
-        // echo '<pre>';
-        // var_dump($order);
-        // echo '</pre>';
+        echo '<pre>';
+        var_dump($order);
+        echo '</pre>';
     }
 
     public static function getAdditionalOrderData($order_id)
