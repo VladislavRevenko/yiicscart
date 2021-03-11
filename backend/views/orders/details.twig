@@ -5,7 +5,68 @@
     <div class="content col-lg-9">
         <div class="content-wrap">
             <form action="" method="post" name="order_info_form" id="order_info_form" class="form-horizontal form-edit order-info-form">
-                
+                <div id="content_general">
+                    <div class="row-fluid">
+                        <div class="col-lg-8">
+                            <div class="table-responsive-wrapper">
+                                <table width="100%" class="table table-middle table--relative table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width="50%">Product</th>
+                                        <th width="10%">Price</th>
+                                        <th class="center" width="10%">Quantity</th>
+                                        {# {if $order_info.use_discount} #}
+                                        <th width="5%">Discount</th>
+                                        {# {/if} #}
+                                        {# {if $order_info.taxes && $settings.Checkout.tax_calculation != "subtotal"} #}
+                                        <th width="10%">&nbsp;Tax</th>
+                                        {# {/if} #}
+                                        <th width="10%" class="right">&nbsp;Subtotal</th>
+                                    </tr>
+                                </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="well orders-right-pane form-horizontal">
+                                <div class="control-group">
+                                    <div class="control-label">
+                                    {% include 'common/subheader.twig' with {'title': 'Status'} %}
+                                    </div>
+                                    <div class="controls">
+                                        {% include 'common/select_popup.twig' %}
+                                    </div>
+
+                                    <div class="control-group shift-top">
+                                    {% include 'common/subheader.twig' with {'title': 'Payment information'} %}
+                                    </div>
+                                    <div class="control-group">
+                                    {# {% if model.payment_id %} #}
+                                        <div class="control-label">Method</div>
+                                        <div id="tygh_payment_info" class="controls">{{ model.payment_method.payment }}&nbsp;
+                                        {% if model.payment_method.description %}
+                                            {{ model.payment_method.description }}
+                                        {% endif %}
+                                        </div>
+                                    </div>
+                                    
+                                    {% include 'common/subheader.twig' with {'title': 'Manager'} %}
+                                    <div class="control-group shift-top" id="select_manager">
+                                        <div class="control">
+                                            <div class="order-manager">
+                                            пикер выбора менеджера
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group shift-top">
+                                        {% include 'common/subheader.twig' with {'title': 'Shipping information'} %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

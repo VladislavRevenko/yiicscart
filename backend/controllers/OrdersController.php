@@ -84,9 +84,13 @@ class OrdersController extends Controller
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDetails($id)
-    {
+    {   
+        $statuses = Statuses::getStatusesList();
+        $additional_order_data = Orders::getAdditionalOrderData($id);
+        
         return $this->render(Yii::getAlias('details.twig'), [
             'model' => $this->findModel($id),
+            'statuses' => $statuses,
         ]);
     }
 
